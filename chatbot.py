@@ -1,24 +1,21 @@
 from tkinter import *
+root = Tk()
 
+text = Text(root,bg='light blue')
+text.grid(row=0,column=0,columnspan=2)
+
+e = Entry(root,width=80)
+e.grid(row=1,column=0)
 
 class chatbott:
 
-    def __init__(self):
-
-        self.root = Tk()
-        self.root.title('CHATBOT')
-
-        e = Entry(self.root,width=80)
-
-        send = "You:"+ e.get()
+    def send():
         
-        text = Text(self.root,bg='light blue')
-
-        text.grid(row=0,column=0,columnspan=2)
+        send = "You:"+ e.get()
         text.insert(END,"\n" + send)
         
         if(e.get()=='hi'):
-            text.insert(END, "\n" + "Bot: hello")
+            text.insert(END, "\n" + "Bot: hello, how can i help you?")
         elif(e.get()=='hello'):
             text.insert(END, "\n" + "Bot: hi")
         elif (e.get() == 'how are you?'):
@@ -27,8 +24,9 @@ class chatbott:
             text.insert(END, "\n" + "Bot: nice to hear that")
         else:
             text.insert(END, "\n" + "Bot: Sorry I didnt get it.")
-
         
-        send = Button(self.root,text='Send',bg='blue',width=20,command=send).grid(row=1,column=1)
-        e.grid(row=1,column=0)
-        self.root.mainloop()
+        
+
+    send = Button(root,text='Send',bg='blue',width=20,command=send).grid(row=1,column=1)
+
+root.title('CHATBOT')
